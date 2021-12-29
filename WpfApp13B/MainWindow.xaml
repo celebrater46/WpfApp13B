@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp13B"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="Zip List" Height="350" Width="525" ResizeMode="CanResizeWithGrip">
+    <Grid Margin="0,0,0,3">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33" />
+            <RowDefinition Height="267" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" >
+            <MenuItem Header="File(_F)">
+                <MenuItem x:Name="openMenu" Header="Open(_O)" Click="openItem_Click" />
+                <MenuItem x:Name="exitMenu" Header="Exit(_X)" Click="exitItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Edit(_E)">
+                <MenuItem x:Name="clearMenu" Header="Clear(_C)" Click="clearItem_Click"/>
+            </MenuItem>
+
+        </Menu>
+        <ListView x:Name="listView" ItemsSource="{Binding Mode=OneWay}" Grid.Row="1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Zip}" Header="郵便番号"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding State}" Header="都道府県"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding City}" Header="市区町村名"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CityKana}" Header="市区町村名カナ"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Town}" Header="町域名"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding TownKana}" Header="町域名カナ"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
     </Grid>
 </Window>

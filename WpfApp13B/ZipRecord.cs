@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp13B
 {
-    internal class ZipRecord
+    public class ZipRecord
     {
         /// <summary>
         /// 全国地方公共団体コード
