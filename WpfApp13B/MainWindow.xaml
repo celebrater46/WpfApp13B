@@ -1,4 +1,48 @@
-﻿<Window x:Class="WpfApp13B.MainWindow"
+﻿<!-- <Window x:Class="WpfApp13B.MainWindow" -->
+<!--         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" -->
+<!--         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" -->
+<!--         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" -->
+<!--         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" -->
+<!--         xmlns:local="clr-namespace:WpfApp13B" -->
+<!--         mc:Ignorable="d" -->
+<!--         Title="Zip List" Height="350" Width="525" ResizeMode="CanResizeWithGrip"> -->
+<!--     <Grid Margin="0,0,0,3"> -->
+<!--         <Grid.RowDefinitions> -->
+<!--             <RowDefinition Height="33" /> -->
+<!--             <RowDefinition Height="267" /> -->
+<!--         </Grid.RowDefinitions> -->
+<!--         <Menu Grid.Row="0" > -->
+<!--             <MenuItem Header="File(_F)"> -->
+<!--                 ~1~ <MenuItem x:Name="openMenu" Header="Open(_O)" Click="openItem_Click" /> @1@ -->
+<!--                 ~1~ <MenuItem x:Name="exitMenu" Header="Exit(_X)" Click="exitItem_Click" /> @1@ -->
+<!--                 <MenuItem x:Name="openMenu" Header="Open(_O)" Click="OpenBtClick" /> -->
+<!--                 <MenuItem x:Name="exitMenu" Header="Exit(_X)" Click="CloseBtClick" /> -->
+<!--             </MenuItem> -->
+<!--             <MenuItem Header="Edit(_E)"> -->
+<!--                 ~1~ <MenuItem x:Name="clearMenu" Header="Clear(_C)" Click="clearItem_Click"/> @1@ -->
+<!--                 <MenuItem x:Name="clearMenu" Header="Clear(_C)" Click="ClearBtClick"/> -->
+<!--             </MenuItem> -->
+<!-- -->
+<!--         </Menu> -->
+<!--         <ListView x:Name="listView" ItemsSource="{Binding Mode=OneWay}" Grid.Row="1"> -->
+<!--             <ListView.View> -->
+<!--                 <GridView> -->
+<!--                     <GridViewColumn DisplayMemberBinding="{Binding Zip}" Header="郵便番号"/> -->
+<!--                     <GridViewColumn DisplayMemberBinding="{Binding State}" Header="都道府県"/> -->
+<!--                     <GridViewColumn DisplayMemberBinding="{Binding City}" Header="市区町村名"/> -->
+<!--                     <GridViewColumn DisplayMemberBinding="{Binding CityKana}" Header="市区町村名カナ"/> -->
+<!--                     <GridViewColumn DisplayMemberBinding="{Binding Town}" Header="町域名"/> -->
+<!--                     <GridViewColumn DisplayMemberBinding="{Binding TownKana}" Header="町域名カナ"/> -->
+<!--                 </GridView> -->
+<!--             </ListView.View> -->
+<!--         </ListView> -->
+<!-- -->
+<!--     </Grid> -->
+<!-- </Window> -->
+
+
+
+<Window x:Class="WpfApp13B.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,33 +50,34 @@
         xmlns:local="clr-namespace:WpfApp13B"
         mc:Ignorable="d"
         Title="Zip List" Height="350" Width="525" ResizeMode="CanResizeWithGrip">
-    <Grid Margin="0,0,0,3">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="33" />
-            <RowDefinition Height="267" />
-        </Grid.RowDefinitions>
-        <Menu Grid.Row="0" >
+    <!-- <Grid> -->
+    <!--      -->
+    <!-- </Grid> -->
+    <StackPanel>
+        <Menu x:Name="menu" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5">
             <MenuItem Header="File(_F)">
-                <MenuItem x:Name="openMenu" Header="Open(_O)" Click="openItem_Click" />
-                <MenuItem x:Name="exitMenu" Header="Exit(_X)" Click="exitItem_Click" />
-            </MenuItem>
-            <MenuItem Header="Edit(_E)">
-                <MenuItem x:Name="clearMenu" Header="Clear(_C)" Click="clearItem_Click"/>
+                <MenuItem x:Name="openMenu" Header="Open(_O)" Click="OpenBtClick" />
+                <Separator />
+                <MenuItem x:Name="exitMenu" Header="Exit(_X)" Click="CloseBtClick" />
             </MenuItem>
 
+            <MenuItem Header="Edit(_E)">
+                <MenuItem x:Name="clearMenu" Header="Clear(_C)" Click="ClearBtClick" />
+            </MenuItem>
+
+            <!-- <MenuItem x:Name="Test" Header="testMenu" Click="Test_Click" IsEnabled={Binding IsEnabled} /> -->
         </Menu>
-        <ListView x:Name="listView" ItemsSource="{Binding Mode=OneWay}" Grid.Row="1">
+        <ListView x:Name="listView" HorizontalAlignment="Left" Width="400" Height="200" Margin="5">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Zip}" Header="郵便番号"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding State}" Header="都道府県"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding City}" Header="市区町村名"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding CityKana}" Header="市区町村名カナ"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Town}" Header="町域名"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding TownKana}" Header="町域名カナ"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Zip}" Header="Zip" />
+                    <GridViewColumn DisplayMemberBinding="{Binding State}" Header="State" />
+                    <GridViewColumn DisplayMemberBinding="{Binding City}" Header="City" />
+                    <GridViewColumn DisplayMemberBinding="{Binding CityKana}" Header="CityK" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Town}" Header="Town" />
+                    <GridViewColumn DisplayMemberBinding="{Binding TownKana}" Header="TownK" />
                 </GridView>
             </ListView.View>
         </ListView>
-
-    </Grid>
+    </StackPanel>
 </Window>
